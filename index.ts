@@ -25,7 +25,7 @@ new aws.s3.BucketPolicy("bucketPolicy", {
           Sid: "AllowPutObject",
           Effect: "Allow",
           Principal: {
-            AWS: "arn:aws:iam::123456789012:user/Admin",
+            AWS: "arn:aws:iam::664660631652:user/Admin",
           },
           Action: ["s3:PutObject", "s3:PutObjectAcl"],
           Resource: [`arn:aws:s3:::${id}/*`],
