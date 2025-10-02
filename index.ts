@@ -2,9 +2,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 
 
-const bucket = new aws.s3.Bucket("react-app-bucket", {
+const bucket = new aws.s3.Bucket("react-app-bucket1", {
   website: {
-    indexDocument: "index.html",
+    indexDocument: "index.html, error.html",
   },
 });
 
@@ -16,10 +16,23 @@ new aws.s3.BucketPolicy("bucketPolicy", {
       Version: "2012-10-17",
       Statement: [
         {
+          Sid: "PublicReadGetObject",
           Effect: "Allow",
           Principal: "*",
-          Action: ["s3:GetObject"],
+          Action: ["s3:GetObject",],
           Resource: [`arn:aws:s3:::${id}/*`],
+        },
+         {
+          Sid : "AllowAdminPut",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::Admin:role/Neost2"
+            },
+            "Action": [
+                "s3:PutObject",
+                "s3:PutObjectAcl"
+            ],
+            Resource: [`arn:aws:s3:::${id}/*`],
         },
       ],
     })
