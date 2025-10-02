@@ -1,2 +1,4 @@
 config:
   aws:region: us-east-1
+  myapp:db-password:
+    secure: AAABAFKaASjftpUjXh/7M0ik/RXc6Bor//0IUdFEy0IqLgQIFKOQGA10Po7Nl3Y3FBfNTqst7UETh3YiN3Vfo5fywrLyvxEajcasHvWd9QJcL9cTKep7/XXCTCCu

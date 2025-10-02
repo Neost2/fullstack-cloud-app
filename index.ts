@@ -1,6 +1,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 
+
 const bucket = new aws.s3.Bucket("react-app-bucket", {
   website: {
     indexDocument: "index.html",
